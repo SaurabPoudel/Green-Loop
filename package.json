@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
-  "workspaces":{
+  "workspaces": {
     "packages": [
       "apps/*",
       "libs/*"
@@ -12,5 +12,19 @@
       "**/@nestjs",
       "**/@nestjs/**"
     ]
+  },
+  "devDependencies": {
+    "nx": "19.3.2",
+    "prettier": "^3.3.2",
+    "husky": "^8.0.0"
+  },
+  "scripts": {
+    "format": "prettier  \"{apps,libs,standalone}/**/*.{ts,tsx,js,json}\" --ignore-path .gitignore",
+    "format:check": "yarn format --check",
+    "format:write": "yarn format --write",
+    "tsc": "yarn nx run-many -t tsc",
+    "lint": "yarn nx run-many -t lint",
+    "validate": "yarn format:write && yarn lint && yarn tsc",
+    "prepare": "husky install"
   }
 }
