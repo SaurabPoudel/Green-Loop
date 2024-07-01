@@ -15,7 +15,7 @@ contract SimpleCounter {
     event NumberDecremented(uint _updatedNumber);
     function increment() public {
         number += 1;
-        emit NumberDecremented(number);
+        emit NumberIncremented(number);
     }
 
     function decrement() public {
